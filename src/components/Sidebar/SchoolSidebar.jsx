@@ -1,4 +1,3 @@
-// src/components/Sidebar/SchoolSidebar.jsx
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaHome, FaBriefcase } from "react-icons/fa";
@@ -8,31 +7,25 @@ import { IoChevronDown } from "react-icons/io5";
 import { useSidebar } from "../../context/SidebarContext";
 import "./SchoolSidebar.css";
 
-const SchoolSidebar = () => {
-  const { 
-    isExpanded, 
-    toggleSidebar, 
-    openDropdown, 
-    toggleDropdown, 
-    isMobileOpen 
-  } = useSidebar();
-
-  const location = useLocation();
+const SchoolSidebar = ({ isExpanded }) => {
+  const { toggleSidebar, openDropdown, toggleDropdown } = useSidebar();
+  const location = useLocation(); // 👈 Central location
 
   const handleOfficesClick = () => {
-    if (!isExpanded) toggleSidebar();
+    if (!isExpanded) toggleSidebar(true);
     toggleDropdown("offices");
   };
 
+  // ✅ Helper: Check if path matches
   const isActive = (path, exact = true) => {
-    if (exact) return location.pathname === path;
+    if (exact) {
+      return location.pathname === path;
+    }
     return location.pathname.startsWith(path);
   };
 
   return (
-    <aside 
-      className={`sidebar ${isExpanded ? "expanded" : ""} ${isMobileOpen ? "mobile-open" : ""}`}
-    >
+    <aside className={`sidebar ${isExpanded ? "expanded" : ""}`}>
       <nav className="sidebar-nav">
         <ul>
           {/* Home */}
@@ -41,7 +34,6 @@ const SchoolSidebar = () => {
               to="/home"
               className={`sidebar-link ${isActive("/home") ? "active" : ""}`}
               end
-              onClick={() => isMobileOpen && toggleSidebar()}
             >
               <FaHome className="sidebar-icon" />
               {isExpanded && <span className="sidebar-text">Home</span>}
@@ -53,7 +45,6 @@ const SchoolSidebar = () => {
             <NavLink
               to="/to-do/upcoming"
               className={`sidebar-link ${isActive("/to-do/", false) ? "active" : ""}`}
-              onClick={() => isMobileOpen && toggleSidebar()}
             >
               <FiCheckSquare className="sidebar-icon" />
               {isExpanded && <span className="sidebar-text">To-do</span>}
@@ -83,7 +74,6 @@ const SchoolSidebar = () => {
                   <NavLink
                     to="/SGOD"
                     className={`sidebar-link sub-link ${isActive("/SGOD") ? "active" : ""}`}
-                    onClick={() => isMobileOpen && toggleSidebar()}
                   >
                     <span className="sidebar-text">SGOD (School Gover…)</span>
                   </NavLink>
@@ -97,7 +87,6 @@ const SchoolSidebar = () => {
             <NavLink
               to="/s-manage-account"
               className={`sidebar-link ${isActive("/manage-account") ? "active" : ""}`}
-              onClick={() => isMobileOpen && toggleSidebar()}
             >
               <MdManageAccounts className="sidebar-icon" />
               {isExpanded && <span className="sidebar-text">Manage Account</span>}
