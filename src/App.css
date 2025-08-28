@@ -92,16 +92,4 @@ App {
 } */ 
 
 
-/* In SchoolHome.css or App.css */
 
-.content-overlay {
-  position:absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* Soft dark tint */
-  z-index: 800;
-  pointer-events: none; /* Allow clicks through */
-  transition: opacity 0.3s ease;
-}
