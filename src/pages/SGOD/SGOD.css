@@ -16,9 +16,8 @@
     gap: 15px;
     padding-inline: 1rem;
     height: auto;
-    width: 100%;
+    width: auto;
     margin:0 auto;
-    max-width: 1200px;
   }
 }
 

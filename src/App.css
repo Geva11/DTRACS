@@ -57,43 +57,45 @@ App {
 
 /*MEDIAAAA*/
 
-@media (min-width: 375px) {
+ /* @media (min-width: 520px) {
   .App {
     font-size: 0.15rem;
-  }
-}
+    padding: 0.625rem;
 
-/* Small tablets and large phones */
-@media (min-width: 480px) {
+  }
+} */
+
+/*/* Small tablets and large phones */
+/* @media (min-width: 480px) {
   .App {
     font-size: 0.25rem;
   }
-}
+} */
 
 /* Tablets (portrait) */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .App {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: auto;
   }
-}
+} */
 
 /* Desktop */
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .App {
     width: 75%;
     max-width: 1000px;
     font-size: 1.125rem;
   }
-}
+} */ 
 
 
 /* In SchoolHome.css or App.css */
 
 .content-overlay {
-  position: fixed;
+  position:absolute;
   top: 0;
   left: 0;
   width: 100%;
