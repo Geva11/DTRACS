@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";   // 👈 import useNavigate
 import "./CardLogo.css";
-import BlueLogo from "../../assets/images/sgod-blue.png";
-import WhiteLogo from "../../assets/images/sgod-white.png";
+import SGODBlueLogo from "../../assets/images/sgod-blue.png";
+import SGODWhiteLogo from "../../assets/images/sgod-white.png";
+import CIDBlueLogo from "../../assets/images/cid-blue.png";
+import CIDWhiteLogo from "../../assets/images/cid-white.png";
 
 const CardLogo = () => {
   const [hovered, setHovered] = useState(false);
@@ -15,7 +17,7 @@ const CardLogo = () => {
     {/* SGOD Card */}
       <div
         className="card"
-        style={{ backgroundImage: `url(${hovered ? WhiteLogo : BlueLogo})` }}
+        style={{ backgroundImage: `url(${hovered ? SGODWhiteLogo : SGODBlueLogo})` }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onClick={() => navigate("/SGOD")}   // 👈 navigate when clicked
@@ -30,7 +32,7 @@ const CardLogo = () => {
     {/* CID Card */}
       <div
         className="card"
-        style={{ backgroundImage: `url(${hoveredCID ? WhiteLogo : BlueLogo})` }}
+        style={{ backgroundImage: `url(${hoveredCID ? CIDWhiteLogo : CIDBlueLogo})` }}
         onMouseEnter={() => setHoveredCID(true)}
         onMouseLeave={() => setHoveredCID(false)}
         onClick={() => navigate("/SGOD")}   // navigate to CID page on click
@@ -45,7 +47,7 @@ const CardLogo = () => {
       {/* OSDS Card */}
       <div
         className="card"
-        style={{ backgroundImage: `url(${hoveredOSDS ? WhiteLogo : BlueLogo})` }}
+        style={{ backgroundImage: `url(${hoveredOSDS ? SGODWhiteLogo : SGODBlueLogo})` }}
         onMouseEnter={() => setHoveredOSDS(true)}
         onMouseLeave={() => setHoveredOSDS(false)}
         onClick={() => navigate("/SGOD")}   // navigate to CID page on click

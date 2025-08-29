@@ -82,6 +82,8 @@
     height: 300px; /* Slightly smaller height */
     margin: 0; /* Remove margin */
     backdrop-filter: blur(10px);
+
+    background-position: center;
   }
 
   .card-text { 
@@ -91,7 +93,10 @@
   .title { 
     font-size: 21px; /* Smaller font size */
     padding-left: 0.25rem;
+    margin-bottom:0;
+    line-height: 1.1;
   }
+
 } 
 
 /* Extra small mobile */

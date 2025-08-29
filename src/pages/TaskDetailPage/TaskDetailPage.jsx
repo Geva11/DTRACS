@@ -255,7 +255,7 @@ const TaskDetailPage = () => {
               }} 
             />
           </div>
-          <h1 className="task-title">{taskTitle}</h1>
+          <span className="task-title">{taskTitle}</span>
           <div className="task-status">
             {isCompleted ? (
               <span style={{ color: "#4CAF50", display: "flex", alignItems: "center", gap: "4px" }}>

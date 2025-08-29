@@ -97,8 +97,8 @@
   .focal-task-card {
     width: 100%;
     max-width: 400px;
-    padding: 16px;
-    margin-top: 3rem; /* Add space below header */
+    padding: 6rem;
+    margin-top: 5rem; /* Add space below header */
     margin-left: 2rem;
     margin-bottom: 16px;
     border-radius: 12px;
@@ -137,11 +137,12 @@
 }
 
 /* Extra small mobile */
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .focal-task-card {
     max-width: 350px;
-    padding: 12px;
+    padding: 1rem;
     margin-left: -0.5rem;
+    margin:5rem 0;
   }
 
   .focal-title {
