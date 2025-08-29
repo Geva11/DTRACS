@@ -5,7 +5,7 @@ import sgodCircle from "../../assets/images/sgod-circle.png";
 const SectionCard = ({ title, image, onClick }) => {
   return (
     <div className="section-card" onClick={onClick} role="button" tabIndex={0}>
-      {/* Top gray image section */}
+      {/* Top image section */}
       <div className="section-card-image">
         <img src={image} alt={title} />
       </div>

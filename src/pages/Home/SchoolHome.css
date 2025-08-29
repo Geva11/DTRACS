@@ -19,12 +19,11 @@
 /*smaller device*/
 @media (max-width: 520px) {
   .app-content {
-    margin-top:2rem;
+    /*margin-top:2rem;*/
     margin-left:0px;
     width: 100%;
     width: auto;
-    margin:0 0;
-
+    padding:0;
   }
 
   .sidebar.expanded ~ .app-content {
@@ -34,7 +33,7 @@
 
 @media (max-width: 768px) {
   .app-content {
-    margin-top:3rem;
+    /*margin-top:3rem;*/
     margin-left:0px;
     width: 100%;
   }
