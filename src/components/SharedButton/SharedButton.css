@@ -100,3 +100,12 @@
   color: white;
   border: none;
 }
+
+
+
+@media(max-width:768px){
+  .shared-button--text {
+    position:relative;
+    top:-3rem;
+}
+}

@@ -133,7 +133,7 @@
 /* Comment Link */
 .comment-link {
   color: #2196F3;
-  font-size: 14px;
+  font-size: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -171,8 +171,6 @@
   flex: 1;
   } 
 
-
-
   .task-status {
   position:relative;
   top:1rem;
@@ -186,8 +184,8 @@
 }
 
 @media (max-width:768px) {
-   .back-button{
-    position:relative;
+.back-button{
+  position:relative;
   margin-top:0.5rem;
   left: -1.2rem;
  }
@@ -198,30 +196,60 @@
   bottom: 2px;
  }
 
-   .task-status {
-    position: relative;
-    top: 0;
-    left: 0;
-    font-size: 11px;
-    margin: 0 0 4px 0;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+.task-status {
+  position: relative;
+  top: -3rem;
+  left: 0;
+  font-size: 11px;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
 
-  .task-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem; /* small spacing */
-  }
+.task-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem; /* small spacing */
+}
 
-   .task-icon {
-    position: relative;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 6px; /* spacing under icon */
-  }
+.task-icon {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 6px; /* spacing under icon */
+}
+
+.task-meta {
+  position:relative;
+  top:-3.5rem;
+}
+
+.divider {
+ position:relative;
+ top:-3.5rem;
+}
+
+.task-author {
+ position:relative;
+ top:-3.5rem;
+}
+
+.task-description {
+ position:relative;
+ top:-3.5rem;
+}
+
+.task-actions{
+  position:relative;
+ top:-3.5rem;
+}
+
+.comm-button{
+  position:relative;
+  top:-3rem;
+}
 }
 
 

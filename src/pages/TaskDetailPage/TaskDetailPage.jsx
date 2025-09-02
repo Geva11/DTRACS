@@ -291,7 +291,7 @@ const TaskDetailPage = () => {
         <div className="task-description">{taskDescription}</div>
 
         {/* Actions */}
-        <TaskActions
+        <TaskActions className="task-actions"
           onFileChange={handleFileChange}
           onComplete={handleComplete}
           onIncomplete={handleIncomplete}
@@ -304,7 +304,7 @@ const TaskDetailPage = () => {
         )}
 
         {/* Add Comment Button */}
-        <SharedButton variant="text" size="medium" onClick={toggleCommentBox} aria-label="Add comment">
+        <SharedButton className="comm-button" variant="text" size="medium" onClick={toggleCommentBox} aria-label="Add comment">
           <RiAccountPinBoxLine className="icon-md" /> Add comment
         </SharedButton>
 

@@ -83,3 +83,11 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+@media(max-width:768px){
+  .comment-box{
+    position:relative;
+    top:-3rem;
+}
+}
