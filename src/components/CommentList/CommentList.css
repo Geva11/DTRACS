@@ -220,3 +220,11 @@
   align-items: center;
   justify-content: center;
 }
+
+
+@media (max-width:768px){
+  .comment-item {
+    position:relative;
+    top:-3rem;
+  }
+}
