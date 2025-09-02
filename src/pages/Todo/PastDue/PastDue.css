@@ -1,12 +1,11 @@
 /* Main App Container */
-.pastdue-app {
+.pastue-app {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 0 16px; /* ← 16px left & right padding */
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
 }
 
 /* Main Content */
@@ -16,7 +15,7 @@
   background-color: #ffffff;
   border: none;
   overflow-y: auto;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 /* Date Header */
@@ -118,6 +117,14 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   transition: box-shadow 0.2s ease, transform 0.1s ease;
+
+  /* Full width within container */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  /* Optional: Kung gusto mo subtle gap sa right */
+  margin-right: 4px; /* 4px space sa kanan (optional) */
 }
 
 .pastdue-card:hover {
