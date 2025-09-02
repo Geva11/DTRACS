@@ -89,7 +89,6 @@
   margin: 0;
   white-space: nowrap;
   display: flex;
-  align-items: center;
   gap: 4px;
 }
 
@@ -198,4 +197,32 @@
   right: 8.1rem;
   bottom: 2px;
  }
+
+   .task-status {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 11px;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem; /* small spacing */
+  }
+
+   .task-icon {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 6px; /* spacing under icon */
+  }
 }
+
+
+
