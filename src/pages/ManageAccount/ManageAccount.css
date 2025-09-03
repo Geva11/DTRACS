@@ -26,3 +26,23 @@
   align-items: flex-start;
   padding-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .manage-account-main {
+    padding: 15px;
+  }
+
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* fix text overflow */
+  .profile-section * {
+    white-space: nowrap;      /* allow wrapping */
+    max-width: 100%;          /* prevent overflow */
+  }
+}
