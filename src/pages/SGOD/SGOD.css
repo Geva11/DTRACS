@@ -1,15 +1,15 @@
 .section-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 100px));
   gap: 2rem;
   padding-left: clamp(10px, 4vw, 40px); /* scales but never too big or too small */
   padding-right: clamp(10px, 4vw, 40px);
   justify-items: center;
   position: relative;
   margin: 4rem auto 0 auto;
-
-  width: 100%;
-  box-sizing: border-box;
+  box-sizing:border-box;
+  max-width: 100%;
+  width:100%;
   overflow-wrap: break-word;
 }
 
@@ -17,7 +17,7 @@
   .section-container { 
     gap: 1.5rem;
     padding: 0 4vw;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);  
     max-width: 600px;
   }
 }
