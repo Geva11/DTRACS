@@ -31,18 +31,102 @@
   user-select: none;
 }
 
-.pastdue-date-bold {
-  font-weight: bold;
-  position: relative;
-  left: 20px;
-}
-
 .pastdue-weekday {
   color: #999;
   font-weight: normal;
-  position: relative;
-  left: 20px;
 }
+
+.pastdue-date-bold {
+  font-weight: bold;
+}
+
+/* Task Link */
+.pastdue-task-link {
+  text-decoration: none;
+  display: block;
+}
+
+/* Task Card */
+.pastdue-card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+
+}
+
+.pastdue-card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Flex container (desktop) */
+.pastdue-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  gap: 12px;
+}
+
+/* Task Icon + Text */
+.pastdue-card-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Deadline */
+.pastdue-card-deadline {
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.pastdue-card-deadline .time {
+  flex-shrink: 0;
+  text-align: right;
+  font-weight: bold; /*completed and upcoming is not bold*/
+  font-size: 12px;
+  color: #d32f2f;
+  white-space: nowrap;
+}
+
+/* Task Title */
+.pastdue-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* Office Meta */
+.pastdue-card-meta {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.pastdue-office {
+  font-weight: 500;
+  color: #555;
+}
+
+/* No tasks message */
+.pastdue-no-tasks {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+}
+
 
 /* Header Actions */
 .header-actions {
@@ -106,96 +190,6 @@
   padding: 0;
 }
 
-/* Task Link */
-.pastdue-task-link {
-  text-decoration: none;
-  display: block;
-}
-
-/* Task Card */
-.pastdue-card {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: box-shadow 0.2s ease, transform 0.1s ease;
-
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.pastdue-card:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Flex container (desktop) */
-.pastdue-card-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 40px;
-  gap: 12px;
-}
-
-/* Task Icon + Text */
-.pastdue-card-text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  overflow: hidden;
-}
-
-/* Task Title */
-.pastdue-card-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 8px;
-}
-
-/* Office Meta */
-.pastdue-card-meta {
-  font-size: 14px;
-  color: #555;
-  margin-top: 4px;
-}
-
-.pastdue-office {
-  font-weight: 500;
-  color: #555;
-}
-
-/* Deadline */
-.pastdue-card-deadline {
-  flex-shrink: 0;
-  text-align: right;
-  font-size: 12px;
-  color: #555;
-  white-space: nowrap;
-}
-
-.pastdue-card-deadline .time {
-  flex-shrink: 0;
-  text-align: right;
-  font-weight: bold;
-  font-size: 12px;
-  color: #d32f2f;
-  white-space: nowrap;
-}
-
-/* No tasks message */
-.pastdue-no-tasks {
-  text-align: center;
-  color: #888;
-  font-style: italic;
-  margin-top: 20px;
-}
-
 /* Task Icon */
 .pastdue-task-icon {
   background: #d32f2f;
@@ -240,7 +234,8 @@
     align-items: flex-start;
     justify-content: flex-start;
     min-height: auto;
-    gap: 4px;
+    gap: 3px 0;
+    margin-bottom: none;
     width: 100%;
     box-sizing: border-box;
   }
@@ -301,8 +296,5 @@
     flex-shrink: 0;
   }
 
-  .pastdue-date-bold,
-  .pastdue-weekday {
-    left: 5px;
-  }
+
 }

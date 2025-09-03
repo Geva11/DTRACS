@@ -240,9 +240,7 @@
   box-sizing: border-box;
   }
 
-  .task-tabs-container {
-    overflow-x: auto;       /* kung sumisikip yung tabs, scroll na lang */
-  }
+  
 
   .upcoming-card-title { /*title*/
   font-size: 16px;
