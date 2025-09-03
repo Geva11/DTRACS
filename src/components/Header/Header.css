@@ -84,7 +84,6 @@ html, body {
 /* Right side: profile */
 .header-right {
   position: relative;
-
   max-width: 45px; /* width matches profile icon */
   margin-right: 0; /* reset margin  */
   flex-shrink: 0; /* prevent shrinking */
