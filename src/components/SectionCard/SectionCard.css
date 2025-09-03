@@ -130,7 +130,7 @@
 }
 
 .section-card-body h3:hover {
-  font-size: 90%;
+  font-size: 1.25rem;
   color: #fff;
   text-decoration: underline;
 }
@@ -167,7 +167,7 @@
 }
 
 .section-card-body h3:hover {
-  font-size: 90%;
+  font-size: 100%;
   color: #fff;
   text-decoration: underline;
 }
