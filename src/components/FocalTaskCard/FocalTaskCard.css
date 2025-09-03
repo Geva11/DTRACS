@@ -12,12 +12,14 @@
   border: 1px solid #e0e7ff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: all 0.3s ease;
-  margin-top: 70px;
+  
   margin-left: 20px;
-  margin-bottom: -50px;
+  margin-bottom: 1rem;  
   cursor: pointer;
 
   max-width:100%;
+  position:relative;
+  top:4rem;
 }
 
 .focal-task-card:hover {
@@ -99,10 +101,14 @@
   .focal-task-card {
     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
     max-width: 100%s;
-    margin: 4rem 0 16px 0; /* keep centered */
+    margin: 0 0 16px 0; /* keep centered */
     border-radius: 12px;
     min-height: auto;
     padding: 20px auto;
+
+    position:relative;
+    top:3.5rem;
+    margin-bottom: 0.15rem;  
   }
 
   .card-content {
@@ -139,9 +145,9 @@
 /* Extra small mobile */
 @media (max-width: 520px) {
   .focal-task-card {
-   max-width: 350px;
+    max-width: 350px;
     padding: 1rem 1rem;
-    margin: 5rem auto; /* keep centered */
+    transform: translateY(10px); /* keep centered */
   }
 
   .focal-title {
