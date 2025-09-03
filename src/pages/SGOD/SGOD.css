@@ -1,6 +1,6 @@
 .section-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 100px));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 100px));
   gap: 2rem;
   padding-left: clamp(10px, 4vw, 40px); /* scales but never too big or too small */
   padding-right: clamp(10px, 4vw, 40px);
