@@ -5,6 +5,7 @@ import "./StartUp.css";
 import background from "../../assets/images/Start-Up.png";
 import ParticleBackground from "../../components/ParticleBackground/Particle1.jsx";
 import "../../components/ParticleBackground/Particle1.css";
+import logownotext from "../../assets/images/logo-w-notext.png"; // Update path as needed
 
 const StartUp = () => {
   const navigate = useNavigate();
@@ -18,13 +19,15 @@ const StartUp = () => {
         <ParticleBackground />
 
         <div className="home-content-container">
-          <div className="home-greeting-section">
-            <h1 className="home-greeting-text">Magandang Buhay!</h1>
-            <p className="home-welcome-text">
-              Welcome to DepEd Biñan Record Monitoring System
-            </p>
-          </div>
-
+        <div className="home-greeting-section">
+           <img 
+            src={logownotext} 
+            alt="DepEd Biñan Logo" 
+                className="greeting-image"
+            />
+          <p className="welcome-text">
+            Welcome to Document Tracking and Compliance System </p>
+        </div>
           <div className="home-instruction-section">
             <FaArrowDown className="home-arrow-icon" aria-hidden="true" />
             <p className="home-instruction-text">
