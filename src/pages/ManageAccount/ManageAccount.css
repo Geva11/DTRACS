@@ -34,10 +34,10 @@
 
   .profile-section {
     flex-direction: column;
-    align-items: center;
     text-align: center;
     gap: 20px;
     width: 100%;
+    position:relative;
   }
 
   /* fix text overflow */

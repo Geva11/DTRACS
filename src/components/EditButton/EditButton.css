@@ -37,15 +37,25 @@
   background-color: #1976d2;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .edit-icon-button {
     position: relative;
     bottom: 9px;
-    left: 290px;
+    left: 300px;
   }
 
   .edit-icon-wrapper {
     position: relative;
     top: auto;
   }
+} */
+
+@media (max-width:768px){
+.edit-icon-wrapper {
+  position: absolute;
+  top: 15px;
+  right: 16px;
+ 
+}
+
 }
