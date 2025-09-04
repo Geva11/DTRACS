@@ -24,10 +24,10 @@ const ProfileInfoCard = ({ userData, isEditing, toggleEditMode }) => {
       <div className="profile-details">
         {/* Name is always shown */}
         <div className="profile-row">
-          <span className="label">Name:</span>
-          <span className="value">
+          <div className="label">Name:</div>
+          <div className="value">
             {userData.firstName} {userData.middleName} {userData.lastName}
-          </span>
+          </div>
         </div>
 
         {/* Dynamically render other fields */}

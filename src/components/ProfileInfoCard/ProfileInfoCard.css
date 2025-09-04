@@ -41,18 +41,66 @@
 }
 
 @media (max-width:768px){
-  .profile-details {
-  grid-template-columns: 1fr;
-  text-align: left;
-}
-.value {
-  color: #333;
-  font-size: 14px;
-  line-height:1;
-  white-space: normal;
-}
+  .profile-info-card {
+    flex: 1;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 35px 15px 0.1px 10px; /* binawasan yung bottom padding */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 50px;
+  }
 
-.profile-row {
-  gap: auto;
-}
+  .profile-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 6px;
+    position: relative;
+    bottom: 30px;
+    margin-bottom: 0; /* tanggalin extra space */
+  }
+
+  .profile-row {
+    display: block;
+    margin-bottom: 6px; /* bawas spacing bawat row */
+  }
+
+  .profile-row:last-child {
+    margin-bottom: 0; /* walang space yung huling row */
+  }
+
+  .label,
+  .value {
+    display: inline;
+    font-size: 14px;
+  }
+
+  .label {
+    color: #999;
+    margin-right: 6px;
+    position: relative;
+    bottom: 13px;
+    left: 15px;
+  }
+
+  .value {
+    color: #333;
+    line-height: 1.4;
+    white-space: normal;
+    position: relative;
+    text-align: left;
+    bottom: 13px;
+    left: 15px;
+  }
+
+  .profile-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin: 0 0 12px; /* mas maliit yung gap sa baba */
+    position: relative;
+    bottom: 38px;
+  }
 }
