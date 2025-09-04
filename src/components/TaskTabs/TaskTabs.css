@@ -4,10 +4,10 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
-  padding-top: 10px;
+  padding-top: 1rem;
   padding-bottom: 10px;
   margin-left: 10px;
-
+  max-width:100%;
 }
 
 .task-tabs {
@@ -75,7 +75,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  min-width: 200px;
+  min-width: 100px;
   background-color: white;
   color: #003366;
   cursor: pointer;
@@ -95,28 +95,46 @@
 @media (max-width:768px){
 .task-tabs-container {
   position:relative;
-  padding-top: 35px;
-  padding-right:28px;
-  overflow:visible;
+  padding-top: 1rem;
 }
 
 .task-tabs {
   gap: 20px;
-  
 }
 
 .task-tab{
- font-size:13px;
+ font-size:clamp (13px, 5vw, 16px);
  white-space: nowrap;
 }
 
 .task-dropdown{
   position: relative;
-    margin-right: 0; /* Remove large right margin causing cutoff */
-    max-width: calc(100vw - 40px); /* Keep dropdown inside viewport */
-    width: 100%;
     box-sizing: border-box;
-    padding-right: 40px; /* Ensure space for arrow */
+    padding-right:30px; /* Ensure space for arrow */
+    padding-left:7px;
     white-space: nowrap; /* Keep dropdown text in single line */
+    flex-shrink:1;
 }
+
+
+}
+
+@media (max-width: 480px) {
+  .task-tabs-container {
+  position:relative;
+  padding-top: 2rem;
+  max-width:auto;
+}
+
+.task-dropdown{
+  display:flex;
+  flex-shrink:1;
+  position:absolute;
+  right:0.5rem;
+  width:100px;
+  max-width:130px;
+  min-width:30px;
+}
+
+
 }
