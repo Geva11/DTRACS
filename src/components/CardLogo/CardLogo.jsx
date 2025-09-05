@@ -35,7 +35,7 @@ const CardLogo = () => {
         style={{ backgroundImage: `url(${hoveredCID ? CIDWhiteLogo : CIDBlueLogo})` }}
         onMouseEnter={() => setHoveredCID(true)}
         onMouseLeave={() => setHoveredCID(false)}
-        onClick={() => navigate("/SGOD")}   // navigate to CID page on click
+        onClick={() => navigate("")}   // navigate to CID page on click
       >
         <div className={`card-text ${hoveredCID ? "hovered" : ""}`}>
           <h1 className="title">
@@ -50,7 +50,7 @@ const CardLogo = () => {
         style={{ backgroundImage: `url(${hoveredOSDS ? SGODWhiteLogo : SGODBlueLogo})` }}
         onMouseEnter={() => setHoveredOSDS(true)}
         onMouseLeave={() => setHoveredOSDS(false)}
-        onClick={() => navigate("/SGOD")}   // navigate to CID page on click
+        onClick={() => navigate("")}   // navigate to CID page on click
       >
         <div className={`card-text ${hoveredOSDS ? "hovered" : ""}`}>
           <h1 className="title">
