@@ -12,7 +12,6 @@ html, body {
 }
 
 
-
 /* App Header */
 .app-header {
   display: flex;
@@ -27,7 +26,6 @@ html, body {
   right: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-
   flex-wrap:nowrap;
 }
 
@@ -250,4 +248,10 @@ hr {
   .header-left {
     gap: 0.5rem; /* smaller gap on small screens */
   }
+
+  
+.logo-w-text {
+ margin-right:1rem;
+ 
+}
 }

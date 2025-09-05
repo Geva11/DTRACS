@@ -121,3 +121,12 @@
 .save-btn:active {
   transform: scale(1);
 }
+
+
+@media(max-width:768px){
+  .edit-links{
+    position:relative;
+    top:2rem;
+    padding-bottom:1rem;
+  }
+}

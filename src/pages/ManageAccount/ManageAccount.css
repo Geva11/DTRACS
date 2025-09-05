@@ -35,14 +35,7 @@
   .profile-section {
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    gap: 0.5rem;
     width: 100%;
-    position:relative;
-  }
-
-  /* fix text overflow */
-  .profile-section * {
-    white-space: nowrap;      /* allow wrapping */
-    max-width: 100%;          /* prevent overflow */
   }
 }
