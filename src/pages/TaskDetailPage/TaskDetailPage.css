@@ -15,7 +15,7 @@
   padding: 40px;
   background-color: #ffffff;
   border: none;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
   margin-top: 30px;
 }
 
@@ -157,33 +157,12 @@
 /*MEDIA*/
 
 @media (max-width:768px) {
- .back-button{
+  .task-title {
   position:relative;
-  margin-top:0.5rem;
-  left: -1.2rem;
- }
-
- .task-title {
-  position:relative;
-  display:inline;
   font-size: 18px;
-  width:300px;
-  flex: 1;
-  } 
 
-  .task-status {
-  position:relative;
-  top:1rem;
-  font-size: 11px;
-  margin: 0;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 4px;
   }
-}
 
-@media (max-width:768px) {
 .back-button{
   position:relative;
   margin-top:0.5rem;
@@ -191,17 +170,17 @@
  }
 
  .task-icon {
-  position: relative;
+  position: sticky;
   right: 8.1rem;
-  bottom: 2px;
+  bottom: 3rem;
  }
 
-.task-status {
+.task-status { /*ok*/
   position: relative;
   top: -3rem;
   left: 0;
   font-size: 11px;
-  margin: 0 0 4px 0;
+  margin: 0;
   white-space: nowrap;
   display: flex;
   align-items: center;
