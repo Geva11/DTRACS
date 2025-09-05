@@ -16,8 +16,10 @@ import SGOD from "./pages/SGOD/SGOD";
 import SectionPage from "./pages/Sections/SectionPage";
 import Upcoming from "./pages/Todo/Upcoming/Upcoming";
 import TaskListPage from "./pages/TaskListPage/TaskListPage";
+import TaskOngoing from "./components/TaskOngoing/TaskOngoing";
 import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage";
 import ManageAccount from "./pages/ManageAccount/ManageAccount";
+
 
 // 🔽 Import moved component
 import ToDoPage from "./pages/Todo/ToDoPage/ToDoPage";
@@ -57,6 +59,7 @@ function App() {
 
       {/* Office Protected Routes */}
       <Route element={<OfficeHome />}>
+        <Route path="/TaskOngoing" element={<TaskOngoing/>} />
         <Route path="/task" element={<OfficeDashboard />} />
         <Route path="/schools" element={<Schools />} />
         <Route path="/o-manage-account" element={<ManageAccount />} />
