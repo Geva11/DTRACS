@@ -86,7 +86,7 @@
   background-position: right 10px center;
   background-size: 16px 16px;
   padding-right: 36px; /* Make room for custom arrow */
-  flex-shrink:0;
+
   margin-left:auto;
   margin-right:0;
 }
@@ -96,6 +96,7 @@
 .task-tabs-container {
   position:relative;
   padding-top: 1rem;
+ 
 }
 
 .task-tabs {
@@ -113,7 +114,6 @@
     padding-right:30px; /* Ensure space for arrow */
     padding-left:7px;
     white-space: nowrap; /* Keep dropdown text in single line */
-    flex-shrink:1;
 }
 
 
@@ -124,6 +124,7 @@
   position:relative;
   padding-top: 2rem;
   max-width:auto;
+ 
 }
 
 .task-dropdown{
