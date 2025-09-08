@@ -105,7 +105,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-
 }
 
 .school-form-group {
@@ -304,6 +303,20 @@
   color: #00d2ff;
   text-decoration: underline;
 }
+
+@media (max-width:768px){
+.school-subtitle {
+    left:2.25rem;
+  position:sticky;
+}
+
+.school-logo-container {
+  position:relative;
+  left:1.25rem;
+}
+}
+
+
 
 
 
