@@ -106,6 +106,13 @@
 @media(max-width:768px){
   .shared-button--text {
     position:relative;
-    top:-3rem;
+    top:3rem;
+}
+
+.shared-button--medium {
+  font-size: 14px;
+  padding: 8px 16px;
+  position: relative;
+  top: 2rem;
 }
 }
