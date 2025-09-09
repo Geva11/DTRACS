@@ -11,21 +11,27 @@ import SchoolHome from "./pages/Home/SchoolHome";
 import Schools from "./pages/Schools/Schools";
 import OfficeHome from "./pages/Home/OfficeHome";
 import SchoolDashboard from "./pages/Dashboard/SchoolDashboard";
-import OfficeDashboard from "./pages/Dashboard/OfficeDashboard";
 import SGOD from "./pages/SGOD/SGOD";
 import SectionPage from "./pages/Sections/SectionPage";
-import Upcoming from "./pages/Todo/Upcoming/Upcoming";
-import TaskListPage from "./pages/TaskListPage/TaskListPage";
-import TaskOngoing from "./components/TaskOngoing/TaskOngoing";
-import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage";
 import ManageAccount from "./pages/ManageAccount/ManageAccount";
+import AccountDisplay from "./pages/AccountDisplay/AccountDisplay"
 
-
-// 🔽 Import moved component
+// School ToDo Dashboard
 import ToDoPage from "./pages/Todo/ToDoPage/ToDoPage";
 import RoleBasedRedirect from "./components/RoleBasedRedirect/RoleBasedRedirect";
-import PastDue from "./pages/Todo/PastDue/PastDue";
-import Completed from "./pages/Todo/Completed/Completed";
+import ToDoPastDue from "./pages/Todo/PastDue/PastDue";
+import ToDoCompleted from "./pages/Todo/Completed/Completed";
+import ToDoUpcoming from "./pages/Todo/Upcoming/Upcoming";
+import ToDoListPage from "./pages/ToDoListPage/ToDoListPage";
+import ToDoDetailPage from "./pages/ToDoDetailPage/ToDoDetailPage";
+
+// Office Task
+import TaskPage from "./pages/Task/TaskPage/TaskPage"
+import TaskOngoing from "./pages/Task/TaskOngoing/TaskOngoing"
+import TaskIncomplete from "./pages/Task/TaskIncomplete/TaskIncomplete"
+import TaskHistory from "./pages/Task/TaskHistory/TaskHistory"
+import TaskDetailPage from "./pages/TaskDetailPage/TaskDetailPage"
+import AttachmentsPage from "./pages/AttachmentsPage/AttachmentsPage"
 
 function App() {
   const location = useLocation();
@@ -44,24 +50,32 @@ function App() {
         <Route path="/home" element={<SchoolDashboard />} />
         <Route path="/SGOD" element={<SGOD />} />
         <Route path="/SGOD/:sectionId" element={<SectionPage />}>
-          <Route path="task-list" element={<TaskListPage />} />
-          <Route path="task-list/:taskSlug" element={<TaskDetailPage />} />
+          <Route path="task-list" element={<ToDoListPage />} />
+          <Route path="task-list/:taskSlug" element={<ToDoDetailPage />} />
         </Route>
         
-        <Route path="/to-do" element={<ToDoPage />}>
-          <Route path="upcoming" element={<Upcoming />} />
-          <Route path="past-due" element={<PastDue />} />
-          <Route path="completed" element={<Completed />} />
+        <Route path="/to-do" element={<ToDoPage />} >
+          <Route path="upcoming" element={<ToDoUpcoming />} />
+          <Route path="past-due" element={<ToDoPastDue />} />
+          <Route path="completed" element={<ToDoCompleted />} />
         </Route>
-
+        
+        <Route path="/todo/:sectionId/:taskSlug" element={<ToDoDetailPage />} />
         <Route path="/s-manage-account" element={<ManageAccount />} />
       </Route>
 
       {/* Office Protected Routes */}
-      <Route element={<OfficeHome />}>
-        <Route path="/TaskOngoing" element={<TaskOngoing/>} />
-        <Route path="/task" element={<OfficeDashboard />} />
+      <Route element={<OfficeHome />} >
+        <Route path="/task" element={<TaskPage />} >
+          <Route path="ongoing" element={<TaskOngoing />} />
+          <Route path="incomplete" element={<TaskIncomplete />} />
+          <Route path="history" element={<TaskHistory />} /> 
+        </Route>
+        
+        <Route path="/task/:sectionId/:taskSlug" element={<TaskDetailPage />} />
+        <Route path="/task/:sectionId/:taskSlug/attachments" element={<AttachmentsPage />} /> {/* Updated to use taskSlug */}
         <Route path="/schools" element={<Schools />} />
+        <Route path="/schools/:schoolSlug" element={<AccountDisplay />} />
         <Route path="/o-manage-account" element={<ManageAccount />} />
       </Route>
 
