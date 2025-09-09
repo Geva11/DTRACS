@@ -90,8 +90,7 @@
   justify-content: space-between;
   margin-bottom: -5px;
   padding-top: 0;
-  border-bottom: 1px solid #B7B6B6;
-  /*border-bottom: none;  Remove default border */
+  border-bottom: none; /* Remove default border */
   transition: border-bottom 0.2s ease;
 }
 
