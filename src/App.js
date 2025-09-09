@@ -19,9 +19,9 @@ import AccountDisplay from "./pages/AccountDisplay/AccountDisplay"
 // School ToDo Dashboard
 import ToDoPage from "./pages/Todo/ToDoPage/ToDoPage";
 import RoleBasedRedirect from "./components/RoleBasedRedirect/RoleBasedRedirect";
-import ToDoPastDue from "./pages/Todo/PastDue/PastDue";
-import ToDoCompleted from "./pages/Todo/Completed/Completed";
-import ToDoUpcoming from "./pages/Todo/Upcoming/Upcoming";
+import ToDoPastDue from "./pages/Todo/ToDoPastDue/ToDoPastDue";
+import ToDoCompleted from "./pages/Todo/ToDoCompleted/ToDoCompleted";
+import ToDoUpcoming from "./pages/Todo/ToDoUpcoming/ToDoUpcoming";
 import ToDoListPage from "./pages/ToDoListPage/ToDoListPage";
 import ToDoDetailPage from "./pages/ToDoDetailPage/ToDoDetailPage";
 

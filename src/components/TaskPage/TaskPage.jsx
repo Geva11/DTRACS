@@ -1,135 +1,85 @@
-import React, { useMemo, useState } from "react";
-import { Outlet } from "react-router-dom";
-import TaskTabs from "../../../components/TaskTabs/TaskTabs";
-import { taskData } from "../../../data/taskData";
-import { createSlug } from "../../../utils/idGenerator";
-import "./TaskPage.css";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./TaskTabs.css";
 
-const TaskPage = () => {
-  const [selectedSort, setSelectedSort] = useState("newest");
+const TaskTabs = ({
+  selectedSort,
+  onSortChange,
+  showUpcomingIndicator = false,
+  showPastDueIndicator = false,
+  showCompletedIndicator = false,
+}) => {
+  const location = useLocation();
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    width: 0,
+    transform: "translateX(0px)",
+  });
+  const tabsRef = useRef({});
 
-  // Extract all offices
-  const allOffices = useMemo(() => (
-    [...new Set(
-      Object.values(taskData)
-        .flat()
-        .flatMap(section => section.tasklist.map(task => task.office))
-    )].sort()
-  ), []);
+  const isActive = (path) => location.pathname === path;
 
-  // Flatten and categorize tasks based on deadline
-  const { upcomingTasks, pastDueTasks, completedTasks } = useMemo(() => {
-    const upcoming = [];
-    const pastDue = [];
-    const completed = [];
-
-    const now = new Date();
-
-    Object.entries(taskData).forEach(([sectionId, sections]) => {
-      sections.forEach(section => {
-        section.tasklist.forEach(task => {
-          const taskDeadline = new Date(task.deadline);
-          const taskStatus = task.task_status || "Ongoing";
-
-          const taskDataObj = {
-            id: task.creator_id,
-            task_id: task.task_id,
-            title: task.title,
-            deadline: task.deadline,
-            office: task.office,
-            creation_date: task.creation_date,
-            completion_date: task.completion_date,
-            sectionId,
-            sectionName: section.section_name || section.section_designation || "General",
-            taskSlug: createSlug(task.title),
-            creator_name: task.creator_name,
-            description: task.description,
-            task_status: taskStatus,
-            section_designation: section.section_designation,
-            schools_required: task.schools_required,
-            accounts_required: task.accounts_required,
-            originalTask: task
-          };
-
-          // Categorize tasks
-          if (taskStatus === "Completed") {
-            completed.push({
-              ...taskDataObj,
-              completedTime: task.completion_date || task.modified_date || task.creation_date
-            });
-          } 
-          else if (taskStatus === "Incomplete") {
-            pastDue.push(taskDataObj);
-          }
-          else if (taskDeadline < now) {
-            pastDue.push(taskDataObj);
-          } else {
-            upcoming.push(taskDataObj);
-          }
-        });
+  useEffect(() => {
+    const activePath = location.pathname;
+    const activeEl = tabsRef.current[activePath];
+    if (activeEl) {
+      setIndicatorStyle({
+        width: activeEl.offsetWidth,
+        transform: `translateX(${activeEl.offsetLeft}px)`,
       });
-    });
-
-    return { 
-      upcomingTasks: upcoming, 
-      pastDueTasks: pastDue, 
-      completedTasks: completed 
-    };
-  }, []);
-
-  // Sort tasks based on selected option
-  const sortTasks = (tasks, sortOption) => {
-    const now = new Date();
-    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-    
-    switch(sortOption) {
-      case "newest":
-        return [...tasks].sort((a, b) => new Date(b.creation_date) - new Date(a.creation_date));
-      case "oldest":
-        return [...tasks].sort((a, b) => new Date(a.creation_date) - new Date(b.creation_date));
-      case "today":
-        return tasks.filter(task => {
-          const taskDate = new Date(task.deadline);
-          return taskDate >= startOfDay && taskDate < new Date(startOfDay.getTime() + 24 * 60 * 60 * 1000);
-        });
-      case "week":
-        return tasks.filter(task => {
-          const taskDate = new Date(task.deadline);
-          const nextWeek = new Date(startOfWeek.getTime() + 7 * 24 * 60 * 60 * 1000);
-          return taskDate >= startOfWeek && taskDate < nextWeek;
-        });
-      case "month":
-        return tasks.filter(task => {
-          const taskDate = new Date(task.deadline);
-          const nextMonth = new Date(startOfMonth.getFullYear(), startOfMonth.getMonth() + 1, 1);
-          return taskDate >= startOfMonth && taskDate < nextMonth;
-        });
-      default:
-        return tasks;
     }
-  };
+  }, [location.pathname]);
 
   return (
-    <div className="task-layout">
-      <TaskTabs
-        selectedSort={selectedSort}
-        onSortChange={setSelectedSort}
-        showUpcomingIndicator={upcomingTasks.length > 0}
-        showPastDueIndicator={pastDueTasks.length > 0}
-        showCompletedIndicator={completedTasks.length > 0}
-      />
+    <div className="task-tabs-container">
+      <div className="task-tabs">
+        <Link
+          ref={(el) => (tabsRef.current["/task/ongoing"] = el)}
+          to="/task/ongoing"
+          className={`task-tab ${isActive("/task/ongoing") ? "active" : ""}`}
+        >
+          Ongoing
+          {showUpcomingIndicator && (
+            <span className="task-indicator task-blue"></span>
+          )}
+        </Link>
+        <Link
+          ref={(el) => (tabsRef.current["/task/incomplete"] = el)}
+          to="/task/incomplete"
+          className={`task-tab ${isActive("/task/incomplete") ? "active" : ""}`}
+        >
+          Incomplete
+          {showPastDueIndicator && (
+            <span className="task-indicator task-red"></span>
+          )}
+        </Link>
+        <Link
+          ref={(el) => (tabsRef.current["/task/history"] = el)}
+          to="/task/history"
+          className={`task-tab ${isActive("/task/history") ? "active" : ""}`}
+        >
+          History
+          {showCompletedIndicator && (
+            <span className="task-indicator task-green"></span>
+          )}
+        </Link>
 
-      {/* Pass sorted tasks and sorting function down via Outlet context */}
-      <Outlet context={{
-        upcomingTasks: sortTasks(upcomingTasks, selectedSort),
-        pastDueTasks: sortTasks(pastDueTasks, selectedSort),
-        completedTasks: sortTasks(completedTasks, selectedSort),
-        selectedSort // Pass the current sort option
-      }} />
+        {/* Sliding underline that persists */}
+        <span className="tab-underline" style={indicatorStyle}></span>
+      </div>
+
+      <select
+        className="task-dropdown"
+        value={selectedSort}
+        onChange={(e) => onSortChange(e.target.value)}
+      >
+        <option value="newest">Newest to Oldest</option>
+        <option value="oldest">Oldest to Newest</option>
+        <option value="today">Due Today</option>
+        <option value="week">Due This Week</option>
+        <option value="month">Due This Month</option>
+      </select>
     </div>
   );
 };
 
-export default TaskPage;
+export default TaskTabs;

@@ -74,3 +74,31 @@
 .create-task-btn:hover .plus-icon {
   color: white;
 }
+
+/* ==================== */
+/*  MOBILE RESPONSIVE   */
+/* ==================== */
+@media (max-width: 768px) {
+  .create-task-btn {
+    width: 20px;   /* mas maliit ng konti */
+    height: 40px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+  }
+
+  .plus-icon {
+    left: 10px;
+    font-size: 20px;
+  }
+
+  .create-text {
+    font-size: 16px;
+    left: 50px;  /* adjust para hindi malayo */
+  }
+
+  /* Hover expansion mas maliit sa phone */
+  .create-task-btn:hover {
+    width: 120px;
+  }
+}

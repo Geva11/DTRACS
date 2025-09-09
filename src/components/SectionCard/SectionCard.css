@@ -31,6 +31,7 @@
 .section-card-image img {
   max-width: 500px;
   opacity: 0.9;
+  position: relative;
 }
 
 .section-card:hover {
@@ -50,6 +51,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  position: relative;
 }
 
 .section-card-body h3 {

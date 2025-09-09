@@ -1,17 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './TaskTabs.css';
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./TaskTabs.css";
 
-const TaskTabs = ({ 
-  selectedOffice, 
-  onOfficeChange, 
-  allOffices = [], 
+const TaskTabs = ({
+  selectedSort,
+  onSortChange,
   showUpcomingIndicator = false,
   showPastDueIndicator = false,
-  showCompletedIndicator = false
+  showCompletedIndicator = false,
 }) => {
   const location = useLocation();
-  const [indicatorStyle, setIndicatorStyle] = useState({ width: 0, transform: 'translateX(0px)' });
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    width: 0,
+    transform: "translateX(0px)",
+  });
   const tabsRef = useRef({});
 
   const isActive = (path) => location.pathname === path;
@@ -22,7 +24,7 @@ const TaskTabs = ({
     if (activeEl) {
       setIndicatorStyle({
         width: activeEl.offsetWidth,
-        transform: `translateX(${activeEl.offsetLeft}px)`
+        transform: `translateX(${activeEl.offsetLeft}px)`,
       });
     }
   }, [location.pathname]);
@@ -31,28 +33,34 @@ const TaskTabs = ({
     <div className="task-tabs-container">
       <div className="task-tabs">
         <Link
-          ref={(el) => (tabsRef.current['/to-do/upcoming'] = el)}
-          to="/to-do/upcoming"
-          className={`task-tab ${isActive('/to-do/upcoming') ? 'active' : ''}`}
+          ref={(el) => (tabsRef.current["/task/ongoing"] = el)}
+          to="/task/ongoing"
+          className={`task-tab ${isActive("/task/ongoing") ? "active" : ""}`}
         >
-          Upcoming
-          {showUpcomingIndicator && <span className="task-indicator task-blue"></span>}
+          Ongoing
+          {showUpcomingIndicator && (
+            <span className="task-indicator task-blue"></span>
+          )}
         </Link>
         <Link
-          ref={(el) => (tabsRef.current['/to-do/past-due'] = el)}
-          to="/to-do/past-due"
-          className={`task-tab ${isActive('/to-do/past-due') ? 'active' : ''}`}
+          ref={(el) => (tabsRef.current["/task/incomplete"] = el)}
+          to="/task/incomplete"
+          className={`task-tab ${isActive("/task/incomplete") ? "active" : ""}`}
         >
-          Past due
-          {showPastDueIndicator && <span className="task-indicator task-red"></span>}
+          Incomplete
+          {showPastDueIndicator && (
+            <span className="task-indicator task-red"></span>
+          )}
         </Link>
         <Link
-          ref={(el) => (tabsRef.current['/to-do/completed'] = el)}
-          to="/to-do/completed"
-          className={`task-tab ${isActive('/to-do/completed') ? 'active' : ''}`}
+          ref={(el) => (tabsRef.current["/task/history"] = el)}
+          to="/task/history"
+          className={`task-tab ${isActive("/task/history") ? "active" : ""}`}
         >
-          Completed
-          {showCompletedIndicator && <span className="task-indicator task-green"></span>}
+          History
+          {showCompletedIndicator && (
+            <span className="task-indicator task-green"></span>
+          )}
         </Link>
 
         {/* Sliding underline that persists */}
@@ -61,15 +69,14 @@ const TaskTabs = ({
 
       <select
         className="task-dropdown"
-        value={selectedOffice}
-        onChange={(e) => onOfficeChange(e.target.value)}
+        value={selectedSort}
+        onChange={(e) => onSortChange(e.target.value)}
       >
-        <option>All Offices</option>
-        {allOffices.map(office => (
-          <option key={office} value={office}>
-            {office}
-          </option>
-        ))}
+        <option value="newest">Newest to Oldest</option>
+        <option value="oldest">Oldest to Newest</option>
+        <option value="today">Due Today</option>
+        <option value="week">Due This Week</option>
+        <option value="month">Due This Month</option>
       </select>
     </div>
   );

@@ -21,6 +21,8 @@
   display: flex; /* Flex for content layout if needed */
   flex-direction: column;
   overflow: hidden;
+  top: 10px;
+  left: 10px;
 
   max-width: 100%; /* Fixed max width to control card size */
   aspect-ratio: 370 / 310; /* keep aspect ratio fixed */

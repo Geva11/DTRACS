@@ -343,61 +343,131 @@
 }
 
 /* ==================== */
-/*  Responsive Design   */
+/*  MOBILE RESPONSIVE   */
 /* ==================== */
-
 @media (max-width: 768px) {
+
+.ongoing-task-title {
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 600px;
+  color: #000;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
   .ongoing-app {
-    margin-left: 10px;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+
+  .ongoing-main {
+    padding-top: 15px;
+    position: 100rem;
+  }
+
+  /* Date Group Header */
+  .ongoing-date-header {
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding-top: 12px;
+  }
+
+  .ongoing-weekday {
+    font-size: 12px;
+  }
+
+  .ongoing-date-bold {
+    font-size: 14px;
+  }
+
+  .ongoing-task-count {
+    font-size: 11px;
+    padding: 3px 6px;
+    margin-right: 6px;
+  }
+
+  .ongoing-dropdown-arrow {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
     margin-right: 10px;
   }
-  
+
+  .ongoing-dropdown-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Task Item */
+  .ongoing-task-item {
+    padding: 12px;
+    border-radius: 6px;
+  }
+
   .ongoing-task-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
   }
-  
+
+  .ongoing-task-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .ongoing-task-title {
+    font-size: 16px;
+    max-width: 100%;
+    white-space: normal; /* allow wrapping */
+    line-height: 1.3;
+  }
+
+  .ongoing-task-office,
   .ongoing-task-deadline {
-    margin-left: 0;
-    margin-top: 8px;
-    padding-left: 0;
-    align-self: flex-end;
+    font-size: 12px;
+    white-space: normal; /* break long text if needed */
   }
-  
+
+  /* Task Footer */
   .ongoing-task-footer {
     flex-direction: column;
-    gap: 12px;
     align-items: flex-start;
+    gap: 10px;
   }
-  
-  .ongoing-assigned-submitted-counts {
-    align-self: flex-end;
-  }
-  
-  .ongoing-date-header {
-    flex-wrap: wrap;
-  }
-  
-  .ongoing-header-actions {
-    margin-left: 0;
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 4px;
-  }
-}
 
-@media (max-width: 480px) {
-  .ongoing-task-item {
-    padding: 12px;
+  .ongoing-description-link {
+    font-size: 12px;
+    padding: 5px 10px;
   }
-  
+
   .ongoing-assigned-submitted-counts {
-    gap: 12px;
+    gap: 10px;
   }
-  
-  .ongoing-task-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+
+  .ongoing-count-item {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .ongoing-count-number {
+    font-size: 13px;
+  }
+
+  .ongoing-count-label {
+    font-size: 10px;
+  }
+
+  /* No Tasks Message */
+  .ongoing-no-tasks {
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 12px;
   }
 }
