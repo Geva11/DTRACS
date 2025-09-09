@@ -121,3 +121,27 @@
   margin: 0;
   font-size: 1rem;
 }
+
+/* M O B I L E */
+
+@media (max-width: 768px) {
+  .header {
+  display: flex;
+  align-items: center;
+  background-color: #1a3666;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  top: 15px;
+}
+
+.no-tasks {
+  margin: 0;
+  font-size: 1rem;
+  position: relative;
+  top: 10px;
+}
+}
