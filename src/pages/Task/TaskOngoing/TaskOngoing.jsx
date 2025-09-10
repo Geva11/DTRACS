@@ -102,8 +102,8 @@ const TaskOngoing = () => {
                       const { total, completed } = getTaskCompletionStats(task);
                       
                       return (
-                        <div className="ongoing-task-item" key={task.id}>
-                          <div className="ongoing-task-header">
+                        <div className="ongoing-task-card" key={task.id}>
+                          <div className="ongoing-task-content">
                             <div className="ongoing-task-icon">
                               <PiClipboardTextBold className="icon-lg" />
                             </div>

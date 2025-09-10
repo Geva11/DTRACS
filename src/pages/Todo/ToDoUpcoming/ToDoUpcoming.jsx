@@ -139,7 +139,7 @@ const ToDoUpcoming = () => {
                               <div className="upcoming-task-icon">
                                 <PiClipboardTextBold className="icon-lg" />
                               </div>
-                              <div>
+                              <div className="upcoming-task-info">
                                 <div className="upcoming-card-title">
                                   {task.title}
                                 </div>

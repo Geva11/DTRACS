@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { PiClipboardTextBold } from "react-icons/pi";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-import { createSlug } from "../../utils/idGenerator";
-import CreateTask from "../CreateTask/CreateTask";
+import { createSlug } from "../../../utils/idGenerator";
+import CreateTask from "../../../components/CreateTask/CreateTask";
 import { ToastContainer, toast } from "react-toastify";
 import {
   formatDate,
   formatTime,
   getWeekday,
   getTaskCompletionStats,
-} from "../../utils/taskHelpers";
+} from "../../../utils/taskHelpers";
 import "react-toastify/dist/ReactToastify.css";
 import "./TaskOngoing.css";
 

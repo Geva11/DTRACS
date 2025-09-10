@@ -94,8 +94,8 @@ const TaskIncomplete = () => {
                       const { total, completed } = getTaskCompletionStats(task);
                       
                       return (
-                        <div className="incomplete-task-item" key={task.id}>
-                          <div className="incomplete-task-header">
+                        <div className="incomplete-task-card" key={task.id}>
+                          <div className="incomplete-task-content">
                             <div className="incomplete-task-icon">
                               <PiClipboardTextBold className="icon-lg" />
                             </div>
