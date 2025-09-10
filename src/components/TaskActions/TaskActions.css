@@ -108,3 +108,11 @@
 input[type="file"] {
   display: none;
 }
+
+@media (max-width:768px){
+  .task-actions {
+  position:relative;
+  top:1rem;
+  margin-bottom: 5px;
+}
+}

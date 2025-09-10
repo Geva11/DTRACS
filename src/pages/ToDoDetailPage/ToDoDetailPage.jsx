@@ -6,11 +6,8 @@ import { FaFilePdf, FaFileWord, FaFileImage, FaFile } from "react-icons/fa";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { RiAccountPinBoxLine } from "react-icons/ri";
 import { PiClipboardTextBold } from "react-icons/pi";
-import CommentBox from "../../components/CommentBox/CommentBox";
 import AttachedFiles from "../../components/AttachedFiles/AttachedFiles";
 import TaskActions from "../../components/TaskActions/TaskActions";
-import CommentList from "../../components/CommentList/CommentList";
-import SharedButton from "../../components/SharedButton/SharedButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useClickOutside from "../../hooks/useClickOutside";
@@ -27,7 +24,6 @@ const ToDoDetailPage = () => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [isLate, setIsLate] = useState(false);
   const [showCommentBox, setShowCommentBox] = useState(false);
-  const [comments, setComments] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
 
@@ -239,78 +235,6 @@ const ToDoDetailPage = () => {
 
   const fullName = `${currentUser.first_name} ${currentUser.middle_name ? currentUser.middle_name + " " : ""}${currentUser.last_name}`.trim();
 
-  const handleCommentSubmit = (html) => {
-    if (!html || !html.trim() || html === "<p><br></p>") {
-      toast.warn("Please enter a comment.");
-      return;
-    }
-
-    const newComment = {
-      id: Date.now(),
-      author: fullName,
-      email: currentUser.email,
-      first_name: currentUser.first_name,
-      last_name: currentUser.last_name,
-      time: new Date().toLocaleString("en-US", {
-        month: "numeric",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      }).replace(/,/g, ""),
-      text: html,
-      isEdited: false,
-    };
-
-    setComments((prev) => [...prev, newComment]);
-    setShowCommentBox(false);
-    toast.success("Comment added successfully!");
-  };
-
-  const handleEditStart = (comment) => {
-    setEditingId(comment.id);
-    setEditText(comment.text);
-    setTimeout(() => {
-      if (editTextareaRef.current) {
-        editTextareaRef.current.style.height = "auto";
-        editTextareaRef.current.style.height = `${editTextareaRef.current.scrollHeight}px`;
-        editTextareaRef.current.focus();
-      }
-    }, 0);
-  };
-
-  const handleEditSave = () => {
-    if (!editText.trim()) {
-      toast.warn("Comment cannot be empty.");
-      return;
-    }
-    setComments((prev) =>
-      prev.map((c) =>
-        c.id === editingId ? { ...c, text: editText.trim(), isEdited: true } : c
-      )
-    );
-    setEditingId(null);
-    setEditText("");
-    toast.info("Comment updated!");
-  };
-
-  const handleEditCancel = () => {
-    setEditingId(null);
-    setEditText("");
-  };
-
-  const handleDeleteComment = (id) => {
-    if (window.confirm("Are you sure you want to delete this comment?")) {
-      setComments((prev) => prev.filter((c) => c.id !== id));
-      toast.error("Comment deleted.");
-    }
-  };
-
-  const toggleCommentBox = () => {
-    setShowCommentBox(!showCommentBox);
-  };
-
   // File helpers
   const getFileIcon = (file) => {
     const ext = file?.name.split(".").pop()?.toLowerCase();
@@ -432,38 +356,12 @@ const ToDoDetailPage = () => {
           <AttachedFiles 
             files={attachedFiles} 
             links={attachedLinks}
-            onRemoveFile={handleRemoveFile}
+            onRemove={handleRemoveFile}
             onRemoveLink={handleRemoveLink}
             isCompleted={isCompleted || isLate} 
           />
         )}
-
-        {/* Add Comment Button */}
-        <SharedButton variant="text" size="medium" onClick={toggleCommentBox} aria-label="Add comment">
-          <RiAccountPinBoxLine className="icon-md" /> Add comment
-        </SharedButton>
-
-        {/* Comment Input */}
-        {showCommentBox && (
-          <div ref={commentBoxRef}>
-            <CommentBox onSubmit={handleCommentSubmit} />
-          </div>
-        )}
-
-        {/* Comment List */}
-        {comments.length > 0 && (
-          <CommentList
-            comments={comments}
-            editingId={editingId}
-            editText={editText}
-            setEditText={setEditText}
-            onEdit={handleEditStart}
-            onSaveEdit={handleEditSave}
-            onCancelEdit={handleEditCancel}
-            onDelete={handleDeleteComment}
-            currentUser={currentUser}
-          />
-        )}
+      
       </main>
 
       <ToastContainer

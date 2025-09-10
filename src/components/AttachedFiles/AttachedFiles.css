@@ -80,8 +80,13 @@
 
 
 @media (max-width:768px){
+ .attached-files-list{
+  position:relative;
+  top:2px;
+ }
+
   .attached-file-card {
     position:relative;
-    top:-3rem;
+    top:3rem;
   }
 }

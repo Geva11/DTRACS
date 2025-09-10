@@ -9,9 +9,6 @@ import { RiAccountPinBoxLine } from "react-icons/ri";
 // Components
 import TaskDescription from "../../components/TaskDetailComponents/TaskDescription/TaskDescription";
 import SchoolStats from "../../components/TaskDetailComponents/SchoolStats/SchoolStats";
-import CommentBox from "../../components/CommentBox/CommentBox";
-import CommentList from "../../components/CommentList/CommentList";
-import SharedButton from "../../components/SharedButton/SharedButton";
 
 // Hooks
 import useClickOutside from "../../hooks/useClickOutside";
@@ -267,31 +264,17 @@ const TaskDetailPage = () => {
         {/* Comment Section */}
         <div className="comment-section">
           {/* Add Comment Button */}
-          <SharedButton variant="text" size="medium" onClick={toggleCommentBox} aria-label="Add comment">
-            <RiAccountPinBoxLine className="icon-md" /> Add comment
-          </SharedButton>
+        
 
           {/* Comment Input */}
           {showCommentBox && (
             <div ref={commentBoxRef}>
-              <CommentBox onSubmit={handleCommentSubmit} />
+           
             </div>
           )}
 
           {/* Comment List */}
-          {comments.length > 0 && (
-            <CommentList
-              comments={comments}
-              editingId={editingId}
-              editText={editText}
-              setEditText={setEditText}
-              onEdit={handleEditStart}
-              onSaveEdit={handleEditSave}
-              onCancelEdit={handleEditCancel}
-              onDelete={handleDeleteComment}
-              currentUser={currentUser}
-            />
-          )}
+      
         </div>
       </div>
 
