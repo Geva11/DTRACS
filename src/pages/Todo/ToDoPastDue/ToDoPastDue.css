@@ -21,7 +21,7 @@
 
 /* Date Header */
 .pastdue-date-header {
-  font-size: 16px;
+  font-size: clamp(15px, 2.5vw, 16px);
   color: #000;
   margin-bottom: 15px;
   display: flex;
@@ -153,7 +153,7 @@
 
 /* Office Meta */
 .pastdue-card-meta {
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #555;
   margin-top: 4px;
 }
@@ -209,23 +209,39 @@
 /* -------- MOBILE VIEW ONLY -------- */
 @media (max-width: 768px) {
   .pastdue-app {
-     margin-left: 0;
-    padding: 0 10px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .pastdue-main {
-    position:relative;
-    top:2rem;
-     padding-top: 15px;
-    overflow-x: hidden;
+    position:relative; 
+    top: 50px; 
+    padding-top:0;
+    flex:1 0;
   }
 
    .pastdue-card {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 5px 16px;
-    width: 100%;
+     padding: 0;
+    margin-right: 13px;
+    margin-bottom: 5px;
     box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }
+
+  .pastdue-date-header{
+     flex-wrap: wrap;
+    padding-top:0;
+    margin-bottom:8px;
+  }
+
+  .pastdue-card-text{
+    display:flex;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content:flex-start;
   }
 
   .pastdue-card-content {
@@ -233,45 +249,49 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    min-height: auto;
-    gap: 4px;
+    gap: 0;
     width: 100%;
-    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: auto;
+  }
+
+  .pastdue-task-info{
+     flex: 1;
+     min-width: 0;
+     overflow: hidden;
   }
 
   .pastdue-card-title {
     font-size: 16px;
     font-weight: bold;
     color: #000;
-    margin-bottom: 4px;
+    margin-bottom: 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 1.3;
     max-height: calc(1.3em * 2);
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 
-  .pastdue-card-meta {
-    font-size: 13px;
+  .pastdue-card-meta { /*office*/
     color: #555;
-    margin: 0 0 4px 0;
+    margin-top: 4px;
     font-weight: 500;
-    white-space: normal;
-    line-height: 1.3;
-    position: relative;
-    top: -3px;
+    white-space: nowrap;
+
   }
 
   .pastdue-card-deadline {
-    font-size: 11px;
-    color: #555;
-    margin: 0;
-    text-align: left;
-    white-space: nowrap;
-    position: relative;
-    left: 3.2rem;
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 3.1rem;
+  transition: color 0.2s ease;
   }
 
   .pastdue-card-deadline .time {
@@ -291,9 +311,8 @@
     font-size: 20px;
     flex-shrink: 0;
   }
-
-  .pastdue-date-bold,
-  .pastdue-weekday {
-    left: 5px;
+  
+  .pastdue-date-group{
+    margin-bottom: 10px;
   }
 }

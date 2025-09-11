@@ -219,5 +219,7 @@
   .school-stats{
     width:90vw;  
     justify-content:baseline;
+    position: relative;
+    left: 10px;
   }
 }

@@ -109,6 +109,8 @@
     grid-template-columns: 1fr; /* Single column on very small screens */
     gap: 1.5rem; /* Space between cards */
     padding: 1rem; /* Padding around container */
+    position: relative;
+    right: 10px;
   }
 
   .card { 

@@ -139,7 +139,7 @@ const ToDoPastDue = () => {
                               <div className="pastdue-task-icon">
                                 <PiClipboardTextBold className="icon-lg" />
                               </div>
-                              <div>
+                              <div className="pastdue-card-info">
                                 <div className="pastdue-card-title">
                                   {task.title}
                                 </div>

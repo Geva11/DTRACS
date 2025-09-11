@@ -140,7 +140,7 @@ const ToDoCompleted = () => {
                               <div className="completed-task-icon">
                                 <PiClipboardTextBold className="icon-lg" />
                               </div>
-                              <div>
+                              <div className="complete-info">
                                 <div className="completed-card-title">
                                   {task.title}
                                 </div>
