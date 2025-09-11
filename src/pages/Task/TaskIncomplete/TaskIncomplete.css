@@ -266,6 +266,15 @@
   z-index: 1;
 }
 
+  .incomplete-task-card:hover .incomplete-task-footer {
+    opacity: 1;
+    height: auto;
+    visibility: visible;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top-color: #eee;
+  }
+
 .incomplete-task-item:hover .incomplete-task-footer {
   opacity: 1;
   height: auto;
@@ -371,6 +380,14 @@
     padding: 10px;
     position: relative;
     z-index: 1;
+    margin-bottom:auto;
+  }
+
+  .incomplete-main{ /**/
+    position:relative; 
+    top: 50px; 
+    padding-top:0;
+    flex:1 0;
   }
 
   .incomplete-task-icon {
@@ -405,17 +422,16 @@
     white-space:normal;
   }
 
-  .incomplete-task-office {
-    font-size: 12px;
-    color: #555;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+ .incomplete-task-info{
+    position:absolute;
+    left:4rem;
   }
 
-  .incomplete-task-deadline {
+  .incomplete-date-group{ /**/
+    margin-bottom:10px;
+  }
+  
+    .incomplete-task-deadline {
     font-size: 11px;
     color: #777;
     margin: 0;
@@ -430,24 +446,25 @@
     text-align: right;
   }
 
-  .incomplete-task-footer {
-    opacity: 0;
-    height: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+  .incomplete-task-office {
+    font-size: 12px;
+    color: #555;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 
-  .incomplete-task-card:hover .incomplete-task-footer {
-    opacity: 1;
-    height: auto;
-    visibility: visible;
-    padding-top: 8px;
-    margin-top: 8px;
-    border-top-color: #eee;
+  .incomplete-task-footer { /**/
+    padding:8px;
   }
 
-  .incomplete-task-info{
-    position:absolute;
-    left:4rem;
+  .incomplete-date-header{
+    flex-wrap: wrap;
+    padding-top:0;
+    margin-bottom:8px;
   }
+
+
 }

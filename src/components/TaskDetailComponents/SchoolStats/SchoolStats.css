@@ -214,3 +214,10 @@
   color: #6b7280;
   cursor: default;
 }
+
+@media (max-width:768px){
+  .school-stats{
+    width:90vw;  
+    justify-content:baseline;
+  }
+}
