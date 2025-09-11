@@ -97,8 +97,8 @@ const TaskHistory = () => {
                       const completionDate = task.completion_date || task.creation_date;
                       
                       return (
-                        <div className="history-task-item" key={task.id}>
-                          <div className="history-task-header">
+                        <div className="history-task-card" key={task.id}>
+                          <div className="history-task-content">
                             <div className="history-task-icon">
                               <PiClipboardTextBold className="icon-lg" />
                             </div>

@@ -177,6 +177,7 @@
     padding: 8px 12px;
     position: relative;
     top: 30px;
+    overflow-x: hidden;
   }
 
   .task-tabs {
