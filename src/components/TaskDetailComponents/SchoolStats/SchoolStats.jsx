@@ -180,7 +180,7 @@ const SchoolStats = ({ task: propTask, taskId: propTaskId, sectionId: propSectio
       </div>
 
       {/* School List */}
-      <div className="school-list">
+      <div className="school-lists">
         {filteredSchools.length > 0 ? (
           filteredSchools.map((school) => (
             <SchoolCard 

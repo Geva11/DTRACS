@@ -60,7 +60,7 @@
 }
 
 /* School list */
-.school-list {
+.school-lists {
   display: flex;
   flex-direction: column;
   padding: 0 8px 8px;
@@ -221,5 +221,15 @@
     justify-content:baseline;
     position: relative;
     left: 10px;
+    overflow:visible;
   }
+
+  .stats-tabs {
+  margin-bottom: 1rem;
+}
+
+.account-item {
+  padding: 8px 0 8px 14px;
+}
+
 }
