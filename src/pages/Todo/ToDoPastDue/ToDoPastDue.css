@@ -257,11 +257,6 @@
     margin-bottom: auto;
   }
 
-  .pastdue-task-info{
-     flex: 1;
-     min-width: 0;
-     overflow: hidden;
-  }
 
   .pastdue-card-title {
     font-size: 16px;

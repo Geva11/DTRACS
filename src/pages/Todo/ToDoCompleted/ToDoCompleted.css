@@ -153,14 +153,9 @@
 
 /* Office Meta */
 .completed-card-meta {
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #555;
   margin-top: 4px;
-}
-
-.completed-office {
-  font-weight: 500;
-  color: #555;
 }
 
 /* Completion Time */
@@ -272,11 +267,6 @@
     flex-direction:row;
     align-items: flex-start;
     justify-content:flex-start;
-  }
-  .complete-info{ /**/
-     flex: 1;
-     min-width: 0;
-     overflow: hidden;
   }
 
   .completed-date-group{ /**/

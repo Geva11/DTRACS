@@ -109,15 +109,11 @@
 
 /* Optional: Office label below title */
 .upcoming-card-meta {
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #555;
   margin-top: 4px;
 }
 
-.upcoming-office {
-  font-weight: 500;
-  color: #203061;
-}
 
 /* No tasks message */
 .upcoming-no-tasks {
@@ -209,24 +205,6 @@
 
 /* -------- MOBILE VIEW ONLY -------- */
 @media (max-width: 768px) {
-  .upcoming-app {
-    margin-left: 0;         /* tanggalin extra margin sa kaliwa */
-    padding: 0 10px;        /* konting padding lang */
-  }
-
-  .upcoming-main { /**/
-    position:relative; 
-    top: 50px; 
-    padding-top:0;
-    flex:1 0;     /* wag mag-scroll horizontally */
-  }
-
-  .upcoming-card-text{ /**/
-    display:flex;
-    flex-direction:row;
-    align-items: flex-start;
-    justify-content:flex-start;
-  }
 
   .upcoming-card { /**/
    padding: 0;
@@ -244,13 +222,21 @@
     padding-top:0;
     margin-bottom:8px;
   }
+
+   .upcoming-card-text{ /**/
+    display:flex;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content:flex-start;
+  }
+
   /* Flex container to vertically align content */
 .upcoming-card-content { /**/
   display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 0;
+    gap: 0; /**/
     width: 100%;
     padding: 10px;
     position: relative;
@@ -258,13 +244,27 @@
     margin-bottom: auto;
   }
 
-  .upcoming-task-info{
-    flex: 1;
-     min-width: 0;
-     overflow: hidden;
+  .upcoming-main{ /**/
+     position:relative; 
+    top: 50px; 
+    padding-top:0;
+    flex:1 0;
   }
 
-  .upcoming-card-title { /**/
+    .upcoming-task-icon {
+      background: #2196f3;
+       color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+    .upcoming-card-title { /**/
   font-size: 16px;
     font-weight: bold;
     color: #000;
@@ -278,42 +278,36 @@
     margin-top: 0;
   }
 
-  .upcoming-card-meta { /*office*/ /**/
-    color: #555;
+
+
+   .upcoming-date-group{ /*idk if may nabago ba >.<*/
+     margin-bottom:10px;
+  }
+
+  .upcoming-card-deadline {/*duedate*/ /**/
+     font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 3.1rem;
+  transition: color 0.2s ease;
+  }
+  
+  .upcoming-app{ /**/
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .upcoming-card-deadline .time {
+     font-size: 11px;
+    margin-left: 3px;
+  }
+
+   .upcoming-card-meta { /*office*/
+  color: #555;
     margin-top: 4px;
     font-weight: 500;
     white-space: nowrap;
   }
-
-  .upcoming-card-deadline {/*duedate*/ /**/
-    font-size: 12px;
-    color: #555;
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-left: 3.1rem;
-    transition: color 0.2s ease;
-  }
-
-  .upcoming-card-deadline .time {
-    font-size: 11px;
-    color: #555;
-    margin-left: 3px;
-  }
-
-  .upcoming-task-icon {
-  background: #2196f3;
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-top: 0;
-  }
  
-  .upcoming-date-group{ /*idk if may nabago ba >.<*/
-  margin-bottom:10px;
-}
 }

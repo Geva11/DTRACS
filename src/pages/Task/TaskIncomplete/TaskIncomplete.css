@@ -30,7 +30,7 @@
 }
 
 .incomplete-date-header {
-  font-size: 16px;
+  font-size: clamp(15px, 2.5vw, 16px);
   color: #000;
   margin-bottom: 15px;
   display: flex;
@@ -194,6 +194,7 @@
 .incomplete-task-item:hover .incomplete-task-icon {
   transform: scale(1.05);
   background-color: #b71c1c;
+ 
 }
 
 .incomplete-task-info {
@@ -219,7 +220,7 @@
 }
 
 .incomplete-task-office {
-  font-size: 12px;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #555;
   margin-top: 4px;
   overflow: hidden;
@@ -239,11 +240,7 @@
 
 .incomplete-task-deadline .incomplete-time {
   color: #d32f2f;
-  font-weight: bold;
-}
-
-.incomplete-task-item:hover .incomplete-task-deadline {
-  color: #d32f2f;
+  /* font-weight: bold; */
 }
 
 /* ==================== */
@@ -261,7 +258,7 @@
   border-top: 1px solid transparent;
   margin-top: 0;
   transition: all 0.3s ease;
-  overflow: hidden;
+
   position: relative;
   z-index: 1;
 }
@@ -274,15 +271,6 @@
     margin-top: 8px;
     border-top-color: #eee;
   }
-
-.incomplete-task-item:hover .incomplete-task-footer {
-  opacity: 1;
-  height: auto;
-  visibility: visible;
-  padding-top: 12px;
-  margin-top: 8px;
-  border-top-color: #eee;
-}
 
 .incomplete-description-link {
   font-size: 12px;
@@ -359,6 +347,13 @@
 /* M E D I A */
 
 @media (max-width: 768px) {
+    .incomplete-main{ /**/
+    position:relative; 
+    top: 50px; 
+    padding-top:0;
+    flex:1 0;
+  }
+
   .incomplete-task-card { 
     padding: 0;
     margin-right: 13px;
@@ -368,6 +363,17 @@
     overflow: hidden;
     background-color: #fff;
     border: 1px solid #ddd;
+  }
+
+   .incomplete-task-info{
+    position:absolute;
+    left:4rem;
+  }
+
+    .incomplete-date-header{
+    flex-wrap: wrap;
+    padding-top:0;
+    margin-bottom:8px;
   }
 
   .incomplete-task-content {
@@ -381,29 +387,6 @@
     position: relative;
     z-index: 1;
     margin-bottom:auto;
-  }
-
-  .incomplete-main{ /**/
-    position:relative; 
-    top: 50px; 
-    padding-top:0;
-    flex:1 0;
-  }
-
-  .incomplete-task-icon {
-    width: 40px;
-    height: 40px;
-    background: #d32f2f;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-right: 12px;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-    margin-top: 0;
   }
 
   .incomplete-task-title {
@@ -422,9 +405,20 @@
     white-space:normal;
   }
 
- .incomplete-task-info{
-    position:absolute;
-    left:4rem;
+  .incomplete-task-icon {
+    width: 40px;
+    height: 40px;
+    background: #d32f2f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 12px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 0;
   }
 
   .incomplete-date-group{ /**/
@@ -446,25 +440,7 @@
     text-align: right;
   }
 
-  .incomplete-task-office {
-    font-size: 12px;
-    color: #555;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-  }
-
   .incomplete-task-footer { /**/
     padding:8px;
   }
-
-  .incomplete-date-header{
-    flex-wrap: wrap;
-    padding-top:0;
-    margin-bottom:8px;
-  }
-
-
 }

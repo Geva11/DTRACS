@@ -104,6 +104,7 @@ const TaskOngoing = () => {
                       return (
                         <div className="ongoing-task-card" key={task.id}>
                           <div className="ongoing-task-content">
+                           
                             <div className="ongoing-task-icon">
                               <PiClipboardTextBold className="icon-lg" />
                             </div>
@@ -118,6 +119,7 @@ const TaskOngoing = () => {
                               <span className="ongoing-time">{formatTime(task.deadline)}</span>
                             </div>
                           </div>
+                          
 
                           <div className="ongoing-task-footer">
                             <Link

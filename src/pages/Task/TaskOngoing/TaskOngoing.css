@@ -18,7 +18,7 @@
   background-color: #ffffff;
   border: none;
   overflow-y: auto;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 /* ==================== */
@@ -30,7 +30,7 @@
 }
 
 .ongoing-date-header {
-  font-size: 16px;
+  font-size: clamp(15px, 2.5vw, 16px);
   color: #000;
   margin-bottom: 15px;
   display: flex;
@@ -169,19 +169,8 @@
 /* ==================== */
 
 .ongoing-task-content { /*content*/
- /* display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-height: auto;
-  gap:3px 0;
-  margin-bottom: none;
-  width: 100%;
-  box-sizing: border-box; */
-
   display: flex;
   align-items: center;
-  justify-content:space-between;
   margin-bottom: 12px;
   position: relative;
   z-index: 1; 
@@ -206,47 +195,45 @@
   background-color: #0d8bf2;
 }
 
-.ongoing-task-title {
-   font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 8px;
+.ongoing-task-info{
+    flex: 1;
+    min-width: 0;
+  overflow: hidden;
+}
 
- /* font-size: 18px;
+.ongoing-task-title {
+  font-size: 18px;
   font-weight: bold;
-  max-width: 600px;
   color: #000;
+  max-width: 600px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: color 0.2s ease;
-  position: relative;*/
 }
 
 .ongoing-task-card:hover .ongoing-task-title {
   color: #2196f3;
 }
 
-.ongoing-task-office {
-  font-size: 12px;
+.ongoing-task-office { /**/
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #555;
   margin-top: 4px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  position: relative;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .ongoing-task-deadline {
-  font-size: 12px;
+ font-size: 12px;
   color: #555;
   white-space: nowrap;
   margin-left: auto;
   flex-shrink: 0;
   padding-left: 12px;
   transition: color 0.2s ease;
-  position: relative;
 }
 
 .ongoing-task-card:hover .ongoing-task-deadline {
@@ -268,7 +255,7 @@
   border-top: 1px solid transparent;
   margin-top: 0;
   transition: all 0.3s ease;
-  overflow: hidden;
+ 
   position: relative;
   z-index: 1;
 }
@@ -357,6 +344,13 @@
 /* M E D I A */
 
 @media (max-width: 768px) {
+   .ongoing-main{ /**/
+    position:relative; 
+    top: 40px; 
+    padding-top:0;
+    flex:1 0;
+  }
+
   .ongoing-task-card {
     padding: 0;
     margin-right: 13px;
@@ -368,40 +362,28 @@
     border: 1px solid #ddd;
   }
 
+  .ongoing-task-info{/**/
+     position:absolute;
+    left:4rem;
+  }
+
+    .ongoing-date-header{ /**/
+    flex-wrap: wrap;
+    padding-top:0;
+    margin-bottom:8px;    
+  }
+
   .ongoing-task-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 4px;
+    gap: 4px; /*0*/
     width: 100%;
     padding: 10px;
     position: relative;
     z-index: 1;
     margin-bottom:auto;
-  }
-
-  .ongoing-main{ /**/
-    position:relative; 
-    top: 40px; 
-    padding-top:0;
-    flex:1 0;
-  }
-
-  .ongoing-task-icon {
-    width: 40px;
-    height: 40px;
-    background: #2196f3;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-right: 12px;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-    margin-top: 0;
   }
 
   .ongoing-task-title {
@@ -420,28 +402,30 @@
     white-space:normal;
   }
 
-  .ongoing-task-info{
-    position:absolute;
-    left:4rem;
+
+  .ongoing-task-icon {
+   width: 40px;
+    height: 40px;
+    background: #2196f3;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 12px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 0;
   }
- 
+
   .ongoing-date-group{ /**/
     margin-bottom: 10px;
   }
 
-  .ongoing-task-office {
-    font-size: 12px;
-    color: #555;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-  }
-
   .ongoing-task-deadline {
-    font-size: 11px;
-    color: #777;
+   font-size: 11px;
+    color: #555;
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -454,23 +438,9 @@
     text-align: right;
   }
 
+
   .ongoing-task-footer { /**/
     padding:8px;
   }
 
-  .ongoing-task-card:hover .ongoing-task-footer {
-    opacity: 1;
-    height: auto;
-    visibility: visible;
-    padding-top: 8px;
-    margin-top: 8px;
-    border-top-color: #eee;
-  }
-
-  .ongoing-date-header{
-    flex-wrap: wrap;
-    padding-top:0.5rem;
-    margin-bottom:8px;    
-  }
-  
 }

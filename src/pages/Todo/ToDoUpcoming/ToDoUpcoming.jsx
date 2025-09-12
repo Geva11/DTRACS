@@ -152,7 +152,7 @@ const ToDoUpcoming = () => {
                                   </span> */}
                                 </div>
                               </div>
-                            </div>
+                            </div> 
 
                             <div className="upcoming-card-deadline">
                               <span className="deadline-text">
