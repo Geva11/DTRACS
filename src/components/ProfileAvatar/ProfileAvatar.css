@@ -15,7 +15,7 @@
 }
 
 /* Profile Avatar - Bigger, 120px */
-.profile-avatar {
+/* .profile-avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -26,6 +26,28 @@
   justify-content: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
+} */
+
+/* Profile Avatar - Fluid Responsive Size */
+.profile-avatar,
+.avatar-image {
+  width: clamp(120px, 20vw, 120px);
+  height: clamp(120px, 20vw, 120px);
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  background-color: #e0e0e0;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-image {
+  object-fit: cover;
+  border: 2px solid #ddd;
 }
 
 /* Change Avatar Button Hover */
@@ -49,42 +71,20 @@
 }
 
 /* Avatar Image */
-.avatar-image {
+/* .avatar-image {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #ddd;
-}
+} */
 
 /**************************MEDIA MEDIA************************************/
 @media (max-width: 768px) {
-  .profile-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #e0e0e0;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  position: sticky;
- }
-
  .profile-avatar-container {
   position:relative;
-  top:4.5rem;
+  top:3.5rem;
 }
-
- .avatar-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ddd;
-}
-
 .change-avatar-btn {
   position:sticky;
   top:4rem;
