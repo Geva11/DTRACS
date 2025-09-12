@@ -37,7 +37,7 @@
 
 .task-edit-modal-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: CLAMP1.5rem;
   font-weight: 600;
   color: #333;
 }
@@ -361,11 +361,111 @@
   border-top: none;
 }
 
-/* Ensure the dropdown doesn't get cut off */
+/* Prevent clipping issues */
 .task-edit-modal-container {
   overflow: visible;
 }
 
 .task-edit-form-group {
   overflow: visible;
+}
+
+
+/* ------------------------------
+   MOBILE RESPONSIVE STYLES
+   ------------------------------ */
+@media (max-width: 768px) {
+   /* Ensure modal scrolls properly on mobile */
+  .task-edit-modal-overlay {
+    align-items: flex-start;
+    padding-top: 23px;
+  }
+  
+  .task-edit-modal-container {
+    width: 95%;
+    max-width: none;
+    padding: 23px;
+    max-height: 95vh;
+    border-radius: 12px;
+    overflow:auto;
+  }
+
+  .task-edit-modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .task-edit-modal-close {
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+  }
+
+  /* Stack form fields in a single column */
+  .task-edit-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Increase touch target size for dropdown toggle */
+  .dropdown-toggle {
+    padding: 14px 12px;
+    font-size: 15px;
+  }
+
+  .dropdown-selected-text {
+    font-size: 15px;
+  }
+
+  /* Adjust upload/link icons spacing */
+  .upload-link-container {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom:0;
+  }
+
+  .upload-circle, .link-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  .link-input-outer-container {
+  margin-top: 0;
+}
+  .upload-label, .link-label {
+    font-size: 14px;
+  }
+
+  /* Full-width link input */
+  .link-input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* Buttons stacked or full-width if needed */
+  .task-edit-form-actions {
+    flex-direction: column;
+    justify-content: stretch;
+    margin-top:20px;
+    gap:0;
+  }
+
+  .cancel-btn, .save-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* Reduce padding in editor toolbar for compactness */
+  .ql-toolbar.ql-snow {
+    padding: 4px 0;
+  }
+
+  .ql-toolbar.ql-snow .ql-formats button {
+    padding: 8px;
+  }
+
+ 
 }
